@@ -74,5 +74,15 @@ class Database:
         # Update with actual values from database
         for category, points in results:
             totals[category] = points
-        
+
         return totals
+
+    def clear_data(self):
+        """Clear all data from the house_points table"""
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+
+        cursor.execute("DELETE FROM house_points")
+
+        conn.commit()
+        conn.close()

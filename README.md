@@ -2,6 +2,8 @@
 
 A modern, real-time leaderboard application for tracking house points in the Hogwarts House Cup competition. Built with a FastAPI backend and a React frontend featuring smooth animations and responsive design.
 
+
+
 ![Hogwarts House Cup](https://img.shields.io/badge/Hogwarts-House%20Cup-gold?style=for-the-badge&logo=react)
 
 <img width="1920" height="965" alt="image" src="https://github.com/user-attachments/assets/94ba91b2-6dc7-4530-8a57-537af7291737" />
@@ -56,7 +58,7 @@ A modern, real-time leaderboard application for tracking house points in the Hog
 
 ### Prerequisites
 
-- **Python 3.8+** with pip
+- **Python 3.8+** with uv package manager
 - **Node.js 16+** with npm
 - **Git** for cloning the repository
 
@@ -71,13 +73,13 @@ A modern, real-time leaderboard application for tracking house points in the Hog
 2. **Backend Setup:**
    ```bash
    cd backend
-   pip install -r requirements.txt
+   uv sync  # Install dependencies from pyproject.toml
 
    # Populate with test data (optional)
-   python3 populate_test_data.py
+   uv run python populate_test_data.py
 
    # Start the server
-   python3 main.py
+   uv run python main.py
    ```
    Backend will be available at: `http://localhost:8000`
 
@@ -121,9 +123,9 @@ A modern, real-time leaderboard application for tracking house points in the Hog
 
 ```bash
 cd backend
-pip install -r requirements.txt
+uv sync  # Install/update dependencies
 # Make changes to main.py or database.py
-python3 main.py  # Auto-reload enabled
+uv run python main.py  # Auto-reload enabled
 ```
 
 ### Frontend Development
@@ -138,11 +140,21 @@ npm run dev  # Hot reload enabled
 
 ```bash
 cd backend
-# Clear all data
-python3 -c "from database import Database; db = Database(); db.clear_data()"
+# Clear all data from db (optional)
+uv run python -c "from database import Database; db = Database(); db.clear_data()"
 
-# Add test data
-python3 populate_test_data.py
+# Add test data 
+uv run python populate_test_data.py
+
+# install packages 
+uv sync
+
+# activate the environment (macos)
+source .venv/bin/activate 
+
+# start server
+python3 main.py
+
 ```
 
 ## 🎨 Design System
@@ -179,7 +191,7 @@ The application is fully responsive with breakpoints for:
 - **Port conflicts**: Vite uses port 5173 by default
 
 ### Common Issues
-- **No data displayed**: Run `python3 populate_test_data.py` to add test data
+- **No data displayed**: Run `uv run python populate_test_data.py` to add test data
 - **Live updates not working**: Check browser console for WebSocket errors
 - **Slow performance**: Ensure stable internet connection for WebSocket
 
