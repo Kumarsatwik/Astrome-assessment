@@ -4,6 +4,9 @@ A modern, real-time leaderboard application for tracking house points in the Hog
 
 ![Hogwarts House Cup](https://img.shields.io/badge/Hogwarts-House%20Cup-gold?style=for-the-badge&logo=react)
 
+<img width="1920" height="965" alt="image" src="https://github.com/user-attachments/assets/94ba91b2-6dc7-4530-8a57-537af7291737" />
+
+
 ## ✨ Features
 
 - **Real-time Updates**: Live WebSocket connection for instant house points updates
